@@ -1,3 +1,25 @@
+use coomands:
+
+Run the script from the command line. For example:
+
+python export_xfeat_onnx.py \
+  --xfeat_path weights/xfeat.pt \
+  --output_path weights/xfeat.onnx \
+  --dynamic \
+  --top_k 1024
+
+Or, to export the end-to-end model (extract + match):
+python export_xfeat_onnx.py --xfeat_path weights/xfeat.pt --end2end --dynamic
+
+Make sure you have the assets/ref.png and assets/tgt.png sample images or update the paths in the script export_onnx() if your sample images are elsewhere.
+
+The script automatically appends resolution suffixes if --dynamic is NOT used.
+
+top_k controls how many keypoints to simulate for matching export (default: None).
+
+The exports will be saved under the weights/ folder or as you specify with --output_path.
+
+
 ## XFeat-ONNX: ONNX Accelerated Features for Lightweight Image Matching
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![ONNX](https://img.shields.io/badge/ONNX-grey)](https://onnx.ai/)
